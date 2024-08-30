@@ -49,7 +49,7 @@ def dlAllFiles(info_dir, save_dir):
         folderId = info["folderId"]
 
         if folderId != None:
-            save_path = pathlib.Path(f"{save_dir}\\{folderId}")
+            save_path = pathlib.Path(f"{save_dir}/{folderId}")
             save_path.mkdir(exist_ok=True)
         else:
             save_path = pathlib.Path(f"{save_dir}")
@@ -57,10 +57,10 @@ def dlAllFiles(info_dir, save_dir):
 
         logger.debug(f"save_path: {save_path}")
 
-        filename = f"{save_path}\\{name}"
+        filename = f"{save_path}/{name}"
         if os.path.isfile(filename):
             tmp = Path(filename)
-            filename = os.path.dirname(filename) + "\\" + tmp.stem + "_1" + tmp.suffix
+            filename = os.path.dirname(filename) + "/" + tmp.stem + "_1" + tmp.suffix
 
         logger.info(f"Now Downloading: {filename}")
 
