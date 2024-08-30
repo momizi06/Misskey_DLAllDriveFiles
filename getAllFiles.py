@@ -40,7 +40,7 @@ def getAllFiles(server, token, save_dir):
 
     tmp_count = 0
 
-    last_path = f"{save_dir}\\response1.json"
+    last_path = f"{save_dir}/response1.json"
     response = misskey_api(
         "drive/stream", server, token, body={"limit": 100, "sort": "+createdAt"}
     )
@@ -61,7 +61,7 @@ def getAllFiles(server, token, save_dir):
             break
         logger.info(f"Now : No. {(i - 1)*100 + 1} ~ {i*100}")
         tmp_count = i
-        last_path = f"{save_dir}\\response{i}.json"
+        last_path = f"{save_dir}/response{i}.json"
         with open(last_path, "w") as f:
             f.write(json.dumps(response, indent=2))
 
